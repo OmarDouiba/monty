@@ -1,13 +1,13 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-#include "main.h"
+#include "monty.h"
 /**
- * main - Entry point of the program
+ * monty - Entry point of the program
  * @argc: The number of command-line arguments
  * @argv: An array of strings containing the arguments
  *
- * Description: This is the main function that serves as the entry point
+ * Description: This is the monty function that serves as the entry point
  *              of the program. It takes command-line arguments and executes
  *              the program's logic.
  *
@@ -17,7 +17,7 @@
 int value = 0;
 unsigned int line_number = 0;
 
-int main(int argc, char *argv[])
+int monty(int argc, char *argv[])
 {
     char *buff = NULL, *arr_buff[2];
     size_t n = 0;

@@ -1,4 +1,4 @@
-#include "main.h"
+#include "monty.h"
 /**
  * f_push - Pushes an integer onto the stack.
  * @stack: A pointer to a pointer to the stack.
