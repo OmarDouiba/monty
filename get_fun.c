@@ -1,4 +1,12 @@
 #include "main.h"
+/**
+ * get_fun - Function that selects the appropriate function to perform
+ *           the operation requested by a given opcode.
+ *
+ * @s: The opcode string to match.
+ *
+ * Return: A pointer to the corresponding function, or NULL if not found.
+ */
 void (*get_fun(char *s))(stack_t **stack, unsigned int line_number)
 {
     (void)line_number;

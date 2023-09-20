@@ -2,6 +2,17 @@
 #include <string.h>
 #include <stdlib.h>
 #include "main.h"
+/**
+ * main - Entry point of the program
+ * @argc: The number of command-line arguments
+ * @argv: An array of strings containing the arguments
+ *
+ * Description: This is the main function that serves as the entry point
+ *              of the program. It takes command-line arguments and executes
+ *              the program's logic.
+ *
+ * Return: Always 0 (Success)
+ */
 
 int value = 0;
 unsigned int line_number = 0;
