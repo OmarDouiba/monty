@@ -8,14 +8,13 @@ unsigned int line_number = 0;
 
 int main(int argc, char *argv[])
 {
-    void (*fptr)();
+    char *buff = NULL, *arr_buff[2];
+    size_t n = 0;
     FILE *fp;
-    char *buff = NULL, *arr_buf[2];
-    size_t  n;
+    void (*fptr)();
     stack_t *stack = NULL;
-   
-    
-    if (!(argc == 2))
+
+    if (argc != 2)
     {
         dprintf(2, "USAGE: monty file\n");
         exit(EXIT_FAILURE);
@@ -28,38 +27,29 @@ int main(int argc, char *argv[])
     }
     while (getline(&buff, &n, fp) != -1)
     {
-        arr_buf[0] = strtok(buff, " \t\n");
-        // if (arr_buf[0] == " ")
-        // {
-        //     line_number++;
-        //     continue;
-        // }
-        
-       
-        if (strncmp("push", arr_buf[0], 4) == 0)
+        arr_buff[0] = strtok(buff, " \t\n");
+        if (arr_buff[0] == "#")
         {
             line_number++;
-            arr_buf[1] = strtok(NULL, " \t\n");
-            // printf("%s\n",  arr_buf[1]);
-            value = str_to_num(arr_buf[1]);
-            printf("%d\n", value);
-            // if (value == 0)
-            // {
-            //     dprintf(2, "L%d: unknown instruction is not a number\n", line_number);
-            //     exit(EXIT_FAILURE);
-            // }
+            continue;
         }
-        fptr = get_fun(arr_buf[0]);
-        if (!fptr)
+        if(strcmp(arr_buff[0], "push") == 0)
         {
-            dprintf(2, "L%d: unknown instruction %s\n", line_number, arr_buf[0]);
-            exit(EXIT_FAILURE);
+            arr_buff[1] = strtok(NULL, " \t\n");
+            value = atoi(arr_buff[1]);
         }
-        else
+        fptr = get_fun(arr_buff[0]);
+        if (fptr)
         {
             (*fptr)(&stack, line_number);
         }
+        // else
+        // {
+        //     dprintf(2, "L%d: unknown instruction %s\n", line_number, arr_buff[0]);
+        //     exit(EXIT_FAILURE);
+        // }
     }
     fclose(fp);
     free(buff), buff = NULL;
+    return (0);
 }

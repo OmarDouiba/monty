@@ -16,7 +16,7 @@ void (*get_fun(char *s))(stack_t **stack, unsigned int line_number)
     {
         if (strncmp(op_code[i].opcode, s, strlen(op_code[i].opcode)) == 0)
         {
-            return op_code[i].f;
+            return (op_code[i].f);
         }
         i++;
     }

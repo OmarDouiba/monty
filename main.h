@@ -30,4 +30,6 @@ void f_pint(stack_t **stack, unsigned int line_number);
 void f_pop(stack_t **stack, unsigned int line_number);
 void print_stack(stack_t **stack, unsigned int line_number);
 int str_to_num(char *s);
+
+
 #endif
